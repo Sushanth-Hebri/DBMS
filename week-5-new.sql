@@ -141,7 +141,7 @@ where empno in (select distinct mgrno from emloyees ));
  select * from emloyees
  where empno in( select empno from incentives
  where incentive_date between '2019-01-01' and '2019-12-31'
- and incentive_amount=(select max(incentive_amount) from incentives where incentive_date between '2019-01-01' and '2019-12-31'));
+ and incentive_amount!=(select max(incentive_amount) from incentives where incentive_date between '2019-01-01' and '2019-12-31'));
 
  -- 7 Display those employees who are working in the same department where his manager is working.
   select e.ename 
